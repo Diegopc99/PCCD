@@ -11,17 +11,18 @@ int main (){
     int i = 0;
     int pid[3] ={};
     int status = 0;
-    char texto[] = {"Hola Mundo Proceso 1","Hola Mundo Proceso 2","Hola Mundo Proceso 3"};
+    char *texto[4] = {"Hola Mundo Proceso 1\n","Hola Mundo Proceso 2\n","Hola Mundo Proceso 3\n"};
 
     for(i=0;i<3;i++){
 
         int hijo = fork();
-
+        //pid[i] = hijo;
 
         if(hijo == 0){
 
-            execl("/home/diego/Escritorio/PCCD/Practica2/Ejercicio4/p1",texto[i],(char *)NULL); // 
+            //execl("p1",texto[i],(char *)NULL); // 
             printf("PID del Hijo: %d , PID del Padre: %d\n",getpid(),getppid());
+            execl("p1",texto[i],(char *)NULL); // 
             sleep((i+2)*2);
             exit(i);
 

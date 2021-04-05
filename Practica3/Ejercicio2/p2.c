@@ -17,9 +17,9 @@ int main(int args,char *arg[]){ //Ejecutar programa con sudo para que pueda acce
     size_t size = sizeof(int); //Solo ocupa un entero
     int id_memoria = 0;
 
-    int numero = atoi(arg[1]);
+    //int numero = atoi(arg[1]);
 
-    key = ftok("/home/diego/Escritorio/PCCD/Practica3/Ejercicio2",'2');
+    key = ftok("/home/diego/Escritorio/PCCD/Practica3",'2');
     
     id_memoria = shmget(key,size,IPC_CREAT|0666);
 
@@ -28,7 +28,7 @@ int main(int args,char *arg[]){ //Ejecutar programa con sudo para que pueda acce
     printf("Segmento de memoria con ID: %d\n",id_memoria);
     printf("Valor de la zona de memoria: %p\n",memzone);
 
-    memzone -> entero = numero;
+    //memzone -> entero = numero;
     //memmove(sh_mem,numero,strlen(numero));//Copia la memoria de numero a sh_mem memmove(dest,orig,size)
 
     printf("%i \n",memzone->entero);

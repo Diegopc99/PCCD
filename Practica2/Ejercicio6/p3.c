@@ -13,12 +13,15 @@ int main (){
     int silva_listo=0;//aspas_listo=0,busquets_listo=0;
 
     printf("De Gea      ");
-    //fflush(stdout);
+    //fflush(stdout); //Si De Gea sale mal anadimos el fflush
 
     switch((pid_Carvajal=fork())){
 
         case 0:
-            printf("Carbajal    ");
+            //printf("Carbajal    ");
+            if(execl("p2","Carvajal","Carvajal   ",(char *) NULL) == -1){
+                exit(-1);
+            }
             exit(0);
         case -1:
             printf("Error en el fork de Carvajal.\n");
@@ -28,7 +31,10 @@ int main (){
     switch((pid_Ramos=fork())){
 
         case 0:
-            printf("Ramos     ");
+            //printf("Ramos     ");
+            if(execl("p2","Ramos","Ramos   ",(char *) NULL) == -1){
+                exit(-1);
+            }
             exit(0);
         case -1:
             printf("Error en el fork de Ramos.\n");
@@ -38,7 +44,10 @@ int main (){
     switch((pid_Pique=fork())){
 
         case 0:
-            printf("Pique     ");
+            //printf("Pique     ");
+            if(execl("p2","Pique","Pique   ",(char *) NULL) == -1){
+                exit(-1);
+            }
             exit(0);
         case -1:
             printf("Error en el fork de Pique.\n");
@@ -48,7 +57,10 @@ int main (){
     switch((pid_JordiAlba=fork())){
 
         case 0:
-            printf("Jordi Alba      ");
+            //printf("Jordi Alba      ");
+            if(execl("p2","JordiAlba","Jordi Alba   ",(char *) NULL) == -1){
+                exit(-1);
+            }
             exit(0);
         case -1:
             printf("Error en el fork de Jordi Alba.\n");
@@ -64,8 +76,11 @@ int main (){
             contador++;
             switch(pid_Thiago = fork()){
                 case 0:
-                    printf("Thiago     ");
-                    printf("Silva   ");
+                    //printf("Thiago     ");
+                    //printf("Silva   ");
+                    if(execl("p2","Thiago","Thiago     Silva   ",(char *) NULL) == -1){
+                        exit(-1);
+                    }
                     exit(0);
                 case -1:
                     printf("Error en el fork de Thiago.\n");

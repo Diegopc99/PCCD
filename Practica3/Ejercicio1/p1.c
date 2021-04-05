@@ -19,7 +19,7 @@ int main(int args,char *arg[]){ //Ejecutar programa con sudo para que pueda acce
 
     int numero = atoi(arg[1]);
 
-    key = ftok("/home/diego/Escritorio/PCCD/Practica3/Ejercicio1",'2');
+    key = ftok("/home/diego/Escritorio/PCCD/Practica3",'2');
     
     id_memoria = shmget(key,size,IPC_CREAT|0666);
 
@@ -35,7 +35,7 @@ int main(int args,char *arg[]){ //Ejecutar programa con sudo para que pueda acce
 
     shmdt(memzone); //Separa el espacio de memoria creado del espacio de memoria del propio proceso, al contrario que shmat
 
-    shmctl(id_memoria,IPC_RMID,NULL);// Libera memoria compartida creada con shmget
+    //shmctl(id_memoria,IPC_RMID,NULL);// Libera memoria compartida creada con shmget
                                      // IPC_RMID libera la memoria cuando se haya desvinculado de un proceso con shmdt 
 
     return 0;
